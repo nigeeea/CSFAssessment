@@ -62,6 +62,12 @@ public class Restaurant {
 		r.setCuisine(d.getString("cuisine"));
 		r.setName(d.getString("name"));
 		r.setRestaurantId(d.getString("restaurant_id"));
+		r.setAddress(
+			d.get("address").toString()
+		);
+
+		// Document doc = d.get("address");
+		//r.setAddress(d.getString("address"));
 
 		return r;
 	}

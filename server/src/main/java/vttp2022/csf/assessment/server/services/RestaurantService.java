@@ -46,19 +46,19 @@ public class RestaurantService {
 	// You can add any parameters (if any) 
 	// DO NOT CHNAGE THE METHOD'S NAME OR THE RETURN TYPE
 
-	// public Optional<Restaurant> getRestaurant(???) {
-	// 	// Implmementation in here
+	public Optional<Restaurant> getRestaurantDetailsByRestaurantName(String name) {
+		return restaurantRepo.getRestaurantDetailsByRestaurantName(name);
 		
-	// }
+	}
 
 	// TODO Task 5
 	// Use this method to insert a comment into the restaurant database
 	// DO NOT CHNAGE THE METHOD'S NAME OR THE RETURN TYPE
 
-	// public void addComment(Comment comment) {
-	// 	// Implmementation in here
+	public void addComment(Comment comment) {
+		restaurantRepo.addComment(comment);
 		
-	// }
-	//
+	}
+	
 	// You may add other methods to this class
 }

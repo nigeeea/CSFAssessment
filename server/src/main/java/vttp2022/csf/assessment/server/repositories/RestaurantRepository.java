@@ -78,10 +78,25 @@ public class RestaurantRepository {
 	// Write the Mongo native query above for this method
 	//  
 
-	// public Optional<Restaurant> getRestaurant(???) {
-	// 	// Implmementation in here
+	public Optional<Restaurant> getRestaurantDetailsByRestaurantName(String name) {
 		
-	// }
+		//get the restaurant details
+		Restaurant r = new Restaurant();
+
+		//Query the database and turn it into a restaurant object
+		Query query = new Query();
+		query.addCriteria(Criteria.where("name").is(name));
+
+		//return it to the service to the controller
+		Document d = mongoTemplate.findOne(query, Document.class, "restaurants");
+
+		//turn Document into Restaurant
+		r = Restaurant.docToRestaurant(d);
+		
+
+		return Optional.of(r);
+		
+	}
 
 	// TODO Task 5
 	// Use this method to insert a comment into the restaurant database
@@ -89,10 +104,13 @@ public class RestaurantRepository {
 	// Write the Mongo native query above for this method
 	//
 
-	// public void addComment(Comment comment) {
-	// 	// Implmementation in here
+	public void addComment(Comment comment) {
+		// Implmementation in here
+		Comment postResponse = mongoTemplate.insert(comment, "comments");
+
 		
-	// }
+
+	}
 	
 	// You may add other methods to this class
 

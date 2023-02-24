@@ -15,16 +15,18 @@ export class RestaurantService {
 	// DO NOT CHNAGE THE METHOD'S NAME
 	cuisineResults = new Subject<string[]>()
 
+	restaurantResults = new Subject<string[]>()
+
 	constructor(private http: HttpClient){}
 
-	public getCuisineList() {
+	public getCuisineList(): Promise<string[]>  {
 		// Implememntation in here
 		
 		return firstValueFrom(
 			this.http.get<string[]>(`${BACKEND}/api/getcuisines`)
 		)
 		.then(results =>{
-			this.cuisineResults.next(results);
+			this.restaurantResults.next(results);
 
 			console.info(results);
 
@@ -40,10 +42,21 @@ export class RestaurantService {
 	// You can add any parameters (if any) and the return type 
 	// DO NOT CHNAGE THE METHOD'S NAME
 
-	// public getRestaurantsByCuisine(???) {
-	// 	// Implememntation in here
+	public getRestaurantsByCuisine(cuisine: string): Promise<string[]> {
+		
+		const params = new HttpParams().set("cuisine", cuisine)
 
-	// }
+		return firstValueFrom(
+			this.http.get<string[]>(`${BACKEND}/api/getRestaurantsByCuisine`, { params })
+		).then(results =>
+			{
+			  this.restaurantResults.next(results);
+			  return results;
+			}
+			
+		  )
+
+	}
 	
 	// TODO Task 4
 	// Use this method to find a specific restaurant

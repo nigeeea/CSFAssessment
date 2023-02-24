@@ -6,8 +6,8 @@ import { RestaurantCuisineComponent } from './components/restaurant-cuisine.comp
 
 const routes: Routes = [
   {path: 'api/cuisines', component: CuisineListComponent},
-  { path: '**', redirectTo: '/', pathMatch: 'full'},
-  {path:'api/:cuisine/restaurants', component: RestaurantCuisineComponent}
+  {path:'api/:cuisine/restaurants', component: RestaurantCuisineComponent},
+  {path: '**', redirectTo: '/', pathMatch: 'full'}
 ];
 
 @NgModule({

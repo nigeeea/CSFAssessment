@@ -1,5 +1,7 @@
 package vttp2022.csf.assessment.server.models;
 
+import jakarta.json.JsonObject;
+
 // Do not modify this class
 public class Comment {
 	private String name;
@@ -33,5 +35,18 @@ public class Comment {
 	}
 	public String getText() {
 		return this.text;
+	}
+
+
+	//from json to comment
+	public static Comment fromJsonToComment(JsonObject pseudoObject){
+		Comment c = new Comment();
+
+		c.setName(pseudoObject.getString("name"));
+		c.setRating(pseudoObject.getInt("rating"));
+		c.setRestaurantId(pseudoObject.getString("restaurantId"));
+		c.setText(pseudoObject.getString("text"));
+
+		return c;
 	}
 }
