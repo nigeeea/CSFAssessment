@@ -17,6 +17,8 @@ export class RestaurantService {
 
 	restaurantResults = new Subject<string[]>()
 
+	postResponse = new Subject<any>()
+
 	constructor(private http: HttpClient){}
 
 	public getCuisineList(): Promise<string[]>  {
@@ -72,8 +74,17 @@ export class RestaurantService {
 	// Use this method to submit a comment
 	// DO NOT CHANGE THE METHOD'S NAME OR SIGNATURE
 
-	// public postComment(comment: Comment): Promise<any> {
-	// 	// Implememntation in here
+	public postComment(comment: Comment): Promise<any> {
+		// Implememntation in here
+		const params = new HttpParams().set("name", comment.name).set("rating", comment.rating).set("text", comment.text)
 
-	// }
+		return firstValueFrom(
+			this.http.post<any>(`${BACKEND}/api/getRestaurantsByCuisine`,  params )
+		).then(
+			response =>{
+				this.postResponse = response
+				return response;
+			}
+		)
+	}
 }

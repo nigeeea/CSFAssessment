@@ -1,1 +1,28 @@
 <p>restaurant-details works!</p>
+
+
+<form [formGroup]="commentPostForm" (ngSubmit)="submitForm()">
+    <table>
+        <tr>
+            <td>
+                <input type="text" formControlName="name">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" formControlName="rating">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" formControlName="text">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Post Comment</button>
+            </td>
+        </tr>
+    </table>
+
+</form>
