@@ -8,14 +8,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class AppConfig {
 
-	@Bean 
+	@Bean
 	public WebMvcConfigurer configureCORS() {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/api/*")
 					.allowedOrigins("*")
-					.allowedMethods("GET");
+					.allowedMethods("GET","POST","PUT","DELETE");
 			}
 		};
 	}

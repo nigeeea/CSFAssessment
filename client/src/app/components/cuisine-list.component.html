@@ -9,3 +9,8 @@
       </tr>
     </tbody>
   </table>
+
+  <a mat-list-item *ngFor="let cuisine of cuisinesReceived" [routerLink]="[cuisine, '/restaurants']">
+    {{cuisine}}
+</a>
+  

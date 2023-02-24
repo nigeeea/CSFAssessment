@@ -55,5 +55,14 @@ public class Restaurant {
 	}
 
 
-	
+	//method to turn Document into Restaurant object
+	public static Restaurant docToRestaurant(Document d){
+		Restaurant r = new Restaurant();
+		
+		r.setCuisine(d.getString("cuisine"));
+		r.setName(d.getString("name"));
+		r.setRestaurantId(d.getString("restaurant_id"));
+
+		return r;
+	}
 }

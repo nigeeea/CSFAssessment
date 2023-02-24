@@ -21,7 +21,7 @@ export class RestaurantService {
 		// Implememntation in here
 		
 		return firstValueFrom(
-			this.http.get<string[]>(`${BACKEND}/api/cuisines`)
+			this.http.get<string[]>(`${BACKEND}/api/getcuisines`)
 		)
 		.then(results =>{
 			this.cuisineResults.next(results);

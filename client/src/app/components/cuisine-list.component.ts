@@ -12,7 +12,7 @@ export class CuisineListComponent implements OnInit {
 	// TODO Task 2
 	// For View 1
 
-  cuisinesReceived!: String[]
+  cuisinesReceived: String[] = ["Asian", "African"]
 
   sub$!: Subscription  
 

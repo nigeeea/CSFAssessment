@@ -36,10 +36,10 @@ public class RestaurantService {
 	// You can add any parameters (if any) and the return type 
 	// DO NOT CHNAGE THE METHOD'S NAME
 
-	// public ??? getRestaurantsByCuisine(???) {
-	// 	// Implmementation in here
+	public List<Restaurant> getRestaurantsByCuisine(String cuisine) {
+		return restaurantRepo.getRestaurantsByCuisine(cuisine);
 		
-	// }
+	}
 
 	// TODO Task 4
 	// Use this method to find a specific restaurant

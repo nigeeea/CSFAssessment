@@ -57,10 +57,19 @@ public class RestaurantRepository {
 	// Write the Mongo native query above for this method
 	//  
 
-	// public ??? getRestaurantsByCuisine(???) {
-	// 	// Implmementation in here
+	public List<Restaurant> getRestaurantsByCuisine(String cuisine) {
+		
+		Query query = new Query();
 
-	// }
+		query.addCriteria(Criteria.where("cuisine").is(cuisine));
+
+		return
+		mongoTemplate.find(query, Document.class, "restaurants")
+		.stream()
+		.map(eachRestaurant -> Restaurant.docToRestaurant(eachRestaurant))
+		.toList();
+
+	}
 
 	// TODO Task 4
 	// Use this method to find a specific restaurant
