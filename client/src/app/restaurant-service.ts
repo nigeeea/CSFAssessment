@@ -3,8 +3,8 @@ import {Injectable} from '@angular/core'
 import {HttpClient, HttpParams} from '@angular/common/http'
 import{Subject, firstValueFrom} from 'rxjs'
 
-
-const BACKEND = 'http://localhost:8085';
+const BACKEND = 'https://csfassessment2402-production.up.railway.app';
+//const BACKEND = 'http://localhost:8085';
 
 @Injectable()
 export class RestaurantService {
